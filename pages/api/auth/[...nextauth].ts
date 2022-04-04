@@ -4,6 +4,12 @@ import SpotifyProvider from 'next-auth/providers/spotify';
 export default NextAuth({
   providers: [
     SpotifyProvider({
+      authorization: 'https://accounts.spotify.com/authorize?' +
+        new URLSearchParams({
+          scope: [
+            'user-read-recently-played',
+          ].join(',')
+        }),
       clientId: process.env.SPOTIFY_CLIENT_ID ?? '',
       clientSecret: process.env.SPOTIFY_CLIENT_SECRET ?? ''
     })
