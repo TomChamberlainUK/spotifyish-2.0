@@ -1,0 +1,32 @@
+.gridContainer {
+  display: grid;
+  grid-template-columns: 1fr;
+  margin: 0;
+  padding: 0;
+
+  @media screen and (min-width: 400px) {
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+
+  @media screen and (min-width: 800px) {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+.itemContainer {
+  width: 100%;
+  list-style: none;
+}
+
+.itemImage {
+  width: 100%;
+}
+
+.itemArtistName {
+  font-size: 1.25rem;
+}
+
+.itemTrackName {
+  font-size: 1rem;
+}

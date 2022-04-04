@@ -4,6 +4,7 @@ import { useSession } from 'next-auth/react';
 import useGetRecentlyPlayed from '@hooks/useGetRecentlyPlayed';
 import Layout from '@components/Layout/Layout';
 import LoadingThrobber from '@components/LoadingThrobber/LoadingThrobber';
+import TrackGrid, { TrackGridItem } from '@components/TrackGrid/TrackGrid';
 
 type AuthNextPage = NextPage & {
   auth: boolean;
@@ -29,19 +30,21 @@ const RecentlyPlayed: AuthNextPage = () => {
           ? <LoadingThrobber />
           : error
             ? <p>An error has occurred, please refresh your browser.</p>
-            : <ul>
+            : <TrackGrid>
                 {
                   tracks.map(({ id, name, artist, album, imageUrl }) => {
                     return (
-                      <li key={id}>
-                        <img src={imageUrl} alt={`Album artwork for ${album} by ${artist}`}/>
-                        <h2>{artist}</h2>
-                        <p>{name}</p>
-                      </li>
+                      <TrackGridItem
+                        key={id}
+                        name={name}
+                        artist={artist}
+                        album={album}
+                        imageUrl={imageUrl}
+                      />
                     );
                   })
                 }
-              </ul>
+              </TrackGrid>
       }
     </Layout>
   );
