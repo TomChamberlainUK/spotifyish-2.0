@@ -1,0 +1,37 @@
+.container {
+  display: grid;
+  place-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+.throbber {
+  width: 4rem;
+  height: 4rem;
+  border: {
+    style: solid;
+    width: 1rem;
+    color: rgba(0, 0, 0, 0.3);
+    top-color: black;
+    radius: 50%;
+  }
+  animation: {
+    name: spin;
+    duration: 1s;
+    iteration-count: infinite;
+    timing-function: cubic-bezier(0.5, 0.15, 0.5, 0.85);
+  }
+}
+
+.text {
+  text-align: center;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
