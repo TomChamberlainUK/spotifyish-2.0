@@ -39,6 +39,20 @@
   }
 }
 
+.profileContainer {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  padding: 1rem;
+}
+
+.profilePicture {
+  width: 8rem;
+  height: 8rem;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
 .main {
   padding-top: 3.25rem;
 }
