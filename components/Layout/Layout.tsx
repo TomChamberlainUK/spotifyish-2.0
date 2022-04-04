@@ -1,5 +1,6 @@
 import type { ReactNode } from 'react';
 import { useState } from 'react';
+import Link from 'next/link';
 import { useSession, signIn, signOut } from 'next-auth/react';
 import LoadingThrobber from '@components/LoadingThrobber/LoadingThrobber';
 import Switch from '@components/Switch/Switch';
@@ -30,6 +31,7 @@ function Layout({ children }: Props) {
       </header>
       <nav className={`${styles.sidebar} ${sidebarIsOpen ? styles.isOpen : ''}`}>
         {
+          // Display sign in/out and profile depending on session status
           <Switch
             condition={status}
             caseHandlers={[
@@ -58,6 +60,37 @@ function Layout({ children }: Props) {
               <p>An error has occurred, please refresh your browser.</p>
             }
           />
+        }
+        {/* Standard navigation links */}
+        <Link href="/">
+          <a
+            onClick={() => setSidebarIsOpen(false)}
+            className={styles.sidebarLink}
+          >
+            Home
+          </a>
+        </Link>
+        {/* Auth protected navigation links */}
+        {
+          status === 'authenticated' &&
+            <>
+              <Link href="/profile">
+                <a
+                  onClick={() => setSidebarIsOpen(false)}
+                  className={styles.sidebarLink}
+                >
+                  Profile
+                </a>
+              </Link>
+              <Link href="/recently-played">
+                <a
+                  onClick={() => setSidebarIsOpen(false)}
+                  className={styles.sidebarLink}
+                >
+                  Recently Played
+                </a>
+              </Link>
+            </>
         }
       </nav>
       <main className={styles.main}>

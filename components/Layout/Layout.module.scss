@@ -25,6 +25,8 @@
 .sidebar {
   position: fixed;
   box-sizing: border-box;
+  display: flex;
+  flex-flow: column;
   padding-top: 3.25rem;
   width: calc(100% - 3rem);
   height: 1px;
@@ -36,6 +38,17 @@
 
   &.isOpen {
     transform: translateX(0);
+  }
+}
+
+.sidebarLink {
+  display: flex;
+  align-items: center;
+  height: 3rem;
+  border-bottom: solid 0.125rem rgba(0, 0, 0, 0.3);
+
+  &:first-of-type {
+    border-top: solid 0.125rem rgba(0, 0, 0, 0.3);
   }
 }
 
