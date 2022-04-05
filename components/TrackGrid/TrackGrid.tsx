@@ -1,5 +1,6 @@
 import type { ReactNode } from 'react';
 import type { Track } from '@tsTypes/Track';
+import type { Artist } from '@tsTypes/Artist';
 import Link from 'next/link';
 import styles from './TrackGrid.module.scss';
 
@@ -29,7 +30,24 @@ export function TrackGridItem({ id, name, artists, album, imageUrl }: Track) {
             {name}
           </h2>
           <p className={styles.itemTrackName}>
-            {artists.map(({ name }: { name: string }) => name).join(', ')}
+            {
+              artists.map(({ id, name }: Artist, i) => {
+                return (
+                  <>
+                    <span>
+                      <Link href={`/artists/${id}`} >
+                        <a>{name}</a>
+                      </Link>
+                    </span>
+                    {
+                      // Add ", " between all artists
+                      i !== artists.length - 1 &&
+                        <>, </>
+                    }
+                  </>
+                );
+              })
+            }
           </p>
         </a>
       </Link>
