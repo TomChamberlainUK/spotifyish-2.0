@@ -10,8 +10,9 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     ? context.params.id
     : '';
 
+  // Don't fetch any data if there is no active session
   if (!session) {
-    throw new Error('No valid session available');
+    return { props: {} }
   }
 
   // Fetch and parse data
@@ -36,13 +37,17 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   }
 }
 
+type AuthNextPage<P = {}, IP = P> = NextPage<P, IP> & {
+  auth: boolean;
+}
+
 type Props = {
   name: string;
   artists: string[];
   imageUrl: string;
 }
 
-const TrackPage: NextPage<Props> = ({ name, artists, imageUrl }) => {
+const TrackPage: AuthNextPage<Props> = ({ name, artists, imageUrl }) => {
   return (
     <Layout>
       <Head>
@@ -56,5 +61,7 @@ const TrackPage: NextPage<Props> = ({ name, artists, imageUrl }) => {
     </Layout>
   );
 }
+
+TrackPage.auth = true;
 
 export default TrackPage;
