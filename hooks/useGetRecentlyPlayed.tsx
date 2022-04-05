@@ -1,19 +1,8 @@
 import type { Session } from 'next-auth';
+import type { Artist } from '@tsTypes/Artist';
+import type { Track } from '@tsTypes/Track';
 import { useEffect, useState } from 'react';
 import useSWR from 'swr';
-
-type Artist = {
-  id: string,
-  name: string
-}
-
-type Track = {
-  id: string,
-  name: string,
-  artists: Artist[],
-  album: string,
-  imageUrl: string
-}
 
 // Prepare fetcher for useSWR
 async function fetcher(url: string, accessToken: string) {

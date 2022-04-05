@@ -1,4 +1,5 @@
 import type { ReactNode } from 'react';
+import type { Track } from '@tsTypes/Track';
 import Link from 'next/link';
 import styles from './TrackGrid.module.scss';
 
@@ -14,20 +15,7 @@ export default function TrackGrid({ children }: TrackGridProps) {
   );
 }
 
-type Artist = {
-  id: string,
-  name: string
-}
-
-type TrackGridItemProps = {
-  id: string,
-  name: string,
-  artists: Artist[],
-  album: string,
-  imageUrl: string
-}
-
-export function TrackGridItem({ id, name, artists, album, imageUrl }: TrackGridItemProps) {
+export function TrackGridItem({ id, name, artists, album, imageUrl }: Track) {
   return (
     <li className={styles.itemContainer}>
       <Link href={`/tracks/${id}`}>
