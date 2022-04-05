@@ -1,6 +1,7 @@
 import type { ReactNode } from 'react';
 import type { Track } from '@tsTypes/Track';
 import type { Artist } from '@tsTypes/Artist';
+import { Fragment } from 'react';
 import Link from 'next/link';
 import styles from './TrackGrid.module.scss';
 
@@ -33,7 +34,7 @@ export function TrackGridItem({ id, name, artists, album, imageUrl }: Track) {
             {
               artists.map(({ id, name }: Artist, i) => {
                 return (
-                  <>
+                  <Fragment key={id}>
                     <span>
                       <Link href={`/artists/${id}`} >
                         <a>{name}</a>
@@ -44,7 +45,7 @@ export function TrackGridItem({ id, name, artists, album, imageUrl }: Track) {
                       i !== artists.length - 1 &&
                         <>, </>
                     }
-                  </>
+                  </Fragment>
                 );
               })
             }
