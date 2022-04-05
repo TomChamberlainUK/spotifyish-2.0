@@ -1,5 +1,6 @@
 import type { NextPage } from 'next';
 import Head from 'next/head';
+import { useEffect } from 'react';
 import { useSession } from 'next-auth/react';
 import useGetRecentlyPlayed from '@hooks/useGetRecentlyPlayed';
 import Layout from '@components/Layout/Layout';
@@ -36,6 +37,7 @@ const RecentlyPlayed: AuthNextPage = () => {
                     return (
                       <TrackGridItem
                         key={id}
+                        id={id}
                         name={name}
                         artist={artist}
                         album={album}
