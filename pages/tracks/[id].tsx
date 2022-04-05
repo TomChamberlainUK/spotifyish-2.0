@@ -1,4 +1,5 @@
-import type { NextPage, GetServerSideProps } from 'next';
+import type { GetServerSideProps } from 'next';
+import type { ProtectedNextPage } from '@tsTypes/ProtectedNextPage';
 import Head from 'next/head';
 import { getSession } from 'next-auth/react';
 import Layout from '@components/Layout/Layout';
@@ -37,17 +38,13 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   }
 }
 
-type AuthNextPage<P = {}, IP = P> = NextPage<P, IP> & {
-  auth: boolean;
-}
-
 type Props = {
   name: string;
   artists: string[];
   imageUrl: string;
 }
 
-const TrackPage: AuthNextPage<Props> = ({ name, artists, imageUrl }) => {
+const TrackPage: ProtectedNextPage<Props> = ({ name, artists, imageUrl }) => {
   return (
     <Layout>
       <Head>

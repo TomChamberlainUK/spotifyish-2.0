@@ -1,11 +1,7 @@
-import type { NextPage } from 'next';
+import type { ProtectedNextPage } from '@tsTypes/ProtectedNextPage';
 import Layout from '@components/Layout/Layout';
 
-type AuthNextPage = NextPage & {
-  auth: boolean;
-}
-
-const Profile: AuthNextPage = () => {
+const Profile: ProtectedNextPage = () => {
   return (
     <Layout>
       <h1>Profile</h1>

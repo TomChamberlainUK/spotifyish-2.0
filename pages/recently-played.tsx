@@ -1,4 +1,4 @@
-import type { NextPage } from 'next';
+import type { ProtectedNextPage } from '@tsTypes/ProtectedNextPage';
 import Head from 'next/head';
 import { useEffect } from 'react';
 import { useSession } from 'next-auth/react';
@@ -7,11 +7,7 @@ import Layout from '@components/Layout/Layout';
 import LoadingThrobber from '@components/LoadingThrobber/LoadingThrobber';
 import TrackGrid, { TrackGridItem } from '@components/TrackGrid/TrackGrid';
 
-type AuthNextPage = NextPage & {
-  auth: boolean;
-}
-
-const RecentlyPlayed: AuthNextPage = () => {
+const RecentlyPlayed: ProtectedNextPage = () => {
 
   const { data: session } = useSession();
 
