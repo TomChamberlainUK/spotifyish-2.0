@@ -3,17 +3,16 @@ import { useEffect, useState } from 'react';
 import useSWR from 'swr';
 
 type Artist = {
-  id: string;
-  name: string;
+  id: string,
+  name: string
 }
 
 type Track = {
-  id: string;
-  name: string;
-  artist: string;
-  artistId: string;
-  album: string;
-  imageUrl: string;
+  id: string,
+  name: string,
+  artists: Artist[],
+  album: string,
+  imageUrl: string
 }
 
 // Prepare fetcher for useSWR
@@ -68,8 +67,12 @@ export default function useGetRecentlyPlayed(session: Session | null) {
           uniqueTracks.set(track.id, {
             id: track.id,
             name: track.name,
-            artist: artist.name,
-            artistId: artist.id,
+            artists: track.artists.map(({ id, name }: Artist) => {
+              return {
+                id,
+                name
+              }
+            }),
             album: track.album.name,
             imageUrl: track.album.images[0].url,
           });
