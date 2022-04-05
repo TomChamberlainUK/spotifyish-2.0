@@ -18,6 +18,12 @@ const RecentlyPlayed: AuthNextPage = () => {
   // Get recently played tracks data
   const { tracks, artists, error, isLoading } = useGetRecentlyPlayed(session);
 
+  // Log errors
+  useEffect(() => {
+    if (!error) return;
+    console.error(error);
+  }, [error]);
+
   return (
     <Layout>
       <Head>
