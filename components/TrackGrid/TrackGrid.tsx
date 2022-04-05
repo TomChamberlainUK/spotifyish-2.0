@@ -26,10 +26,10 @@ export function TrackGridItem({ id, name, artists, album, imageUrl }: Track) {
             alt={`Album artwork for ${album}`}
             className={styles.itemImage}
           />
-          <h2 className={styles.itemArtistName}>
+          <h2 className={styles.itemTrackName}>
             {name}
           </h2>
-          <p className={styles.itemTrackName}>
+          <p className={styles.itemArtistName}>
             {
               artists.map(({ id, name }: Artist, i) => {
                 return (
