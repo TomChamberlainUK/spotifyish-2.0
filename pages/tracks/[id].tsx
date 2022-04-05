@@ -1,6 +1,9 @@
 import type { GetServerSideProps } from 'next';
 import type { ProtectedNextPage } from '@tsTypes/ProtectedNextPage';
+import type { Artist } from '@tsTypes/Artist';
+import { Fragment } from 'react';
 import Head from 'next/head';
+import Link from 'next/link';
 import { getSession } from 'next-auth/react';
 import Layout from '@components/Layout/Layout';
 
@@ -32,19 +35,51 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   return {
     props: {
       name: data.name,
-      artists: data.artists.map(({ name }: { name: string }) => name),
-      imageUrl: data.album.images[0].url
+      artists: data.artists.map(({ id, name }: Artist) => {
+        return {
+          id,
+          name
+        }
+      }),
+      imageUrl: data.album.images[0].url,
+      album: {
+        name: data.album.name,
+        type: data.album.type,
+        releaseDate: data.album.release_date
+      },
+      explicit: data.explicit,
+      duration: data.duration_ms,
+      popularity: data.popularity,
+      previewUrl: data.preview_url
     }
   }
 }
 
 type Props = {
-  name: string;
-  artists: string[];
-  imageUrl: string;
+  name: string,
+  artists: Artist[],
+  imageUrl: string,
+  album: {
+    name: string,
+    type: string,
+    releaseDate: string
+  },
+  explicit: boolean,
+  duration: number,
+  popularity: number,
+  previewUrl: string
 }
 
-const TrackPage: ProtectedNextPage<Props> = ({ name, artists, imageUrl }) => {
+const TrackPage: ProtectedNextPage<Props> = ({
+  name,
+  artists,
+  imageUrl,
+  album,
+  explicit,
+  duration,
+  popularity,
+  previewUrl
+}) => {
   return (
     <Layout>
       <Head>
@@ -54,7 +89,37 @@ const TrackPage: ProtectedNextPage<Props> = ({ name, artists, imageUrl }) => {
       </Head>
       <img src={imageUrl} />
       <h2>{name}</h2>
-      <p>{artists.join(', ')}</p>
+      <p>
+        {
+          artists.map(({ id, name }: Artist, i) => {
+            return (
+              <Fragment key={id}>
+                <span>
+                  <Link href={`/artists/${id}`} >
+                    <a>{name}</a>
+                  </Link>
+                </span>
+                {
+                  // Add ", " between all artists
+                  i !== artists.length - 1 &&
+                    <>, </>
+                }
+              </Fragment>
+            );
+          })
+        }
+      </p>
+      <p>On the {album.type}, {album.name}, released on {album.releaseDate}</p>
+      {
+        explicit &&
+          <p>Explicit!</p>
+      }
+      <p>Track length: {duration}</p>
+      <p>Popularity: {popularity}</p>
+      {
+        previewUrl &&
+          <p>Check it out <Link href={previewUrl}><a>Here</a></Link></p>
+      }
     </Layout>
   );
 }
