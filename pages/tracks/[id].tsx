@@ -2,7 +2,6 @@ import type { NextPage, GetServerSideProps } from 'next';
 import Head from 'next/head';
 import { getSession } from 'next-auth/react';
 import Layout from '@components/Layout/Layout';
-import { useEffect } from 'react';
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
 
@@ -44,11 +43,6 @@ type Props = {
 }
 
 const TrackPage: NextPage<Props> = ({ name, artists, imageUrl }) => {
-
-  useEffect(() => {
-    console.log(name, artists, imageUrl)
-  }, [name, artists, imageUrl]);
-
   return (
     <Layout>
       <Head>

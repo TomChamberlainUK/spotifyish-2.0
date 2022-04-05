@@ -65,7 +65,6 @@ export default function useGetRecentlyPlayed(session: Session | null) {
   
         // If the track is not already mapped, add it
         if (!uniqueTracks.has(track.id)) {
-          console.log(track);
           uniqueTracks.set(track.id, {
             id: track.id,
             name: track.name,
