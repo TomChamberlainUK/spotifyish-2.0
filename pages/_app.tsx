@@ -1,11 +1,10 @@
 import '../styles/global.scss';
 import type { AppProps } from 'next/app';
 import type { NextComponentType } from 'next';
-import type { ReactNode } from 'react';
-import { SessionProvider, useSession } from 'next-auth/react';
+import { SessionProvider } from 'next-auth/react';
+import Auth from '@components/Auth/Auth';
 
-
-type CustomAppProps = AppProps & {
+type Props = AppProps & {
   Component: NextComponentType & {
     auth?: boolean
   }
@@ -17,7 +16,7 @@ function MyApp({
     session,
     ...pageProps
   }
-}: CustomAppProps) {
+}: Props) {
   return (
     <SessionProvider session={session}>
       {
@@ -30,19 +29,6 @@ function MyApp({
 
     </SessionProvider>
   );
-}
-
-type AuthProps = {
-  children: ReactNode
-}
-
-function Auth({ children }: AuthProps) {
-  const { data: session, status } = useSession({ required: true });
-  const isUser = session?.user;
-  if (isUser) {
-    return <>{children}</>;
-  }
-  return <div>Loading...</div>;
 }
 
 export default MyApp;
