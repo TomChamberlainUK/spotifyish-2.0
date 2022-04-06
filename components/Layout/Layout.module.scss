@@ -49,12 +49,28 @@
 .sidebarLink {
   display: flex;
   align-items: center;
+  box-sizing: border-box;
+  padding: 0 1rem;
   height: 3rem;
-  border-bottom: solid 0.125rem rgba(0, 0, 0, 0.3);
+  border-bottom: solid 0.0625rem var(--color-text-dark-disabled);
+  border-right: solid 0rem var(--color-base);
+  color: var(--color-text-dark-low-emphasis);
+  text-decoration: none;
+  transition: border-right 0.25s;
+  
+  &:hover {
+    border-right-width: 0.5rem;
+    color: var(--color-text-dark-high-emphasis);
+  }
 
   &:first-of-type {
-    border-top: solid 0.125rem rgba(0, 0, 0, 0.3);
+    border-top: solid 0.0625rem var(--color-text-dark-disabled);
   }
+}
+
+.sidebarLinkName {
+  font-size: 1rem;
+  font-weight: 600;
 }
 
 .profileContainer {
