@@ -7,6 +7,7 @@ export default NextAuth({
       authorization: 'https://accounts.spotify.com/authorize?' +
         new URLSearchParams({
           scope: [
+            'user-read-email',
             'user-read-recently-played',
           ].join(',')
         }),
