@@ -1,23 +1,28 @@
 @use './normalize';
+@use './colors';
 
 :root {
-  --color-neutral-darkest: #000;
-  --color-neutral-darker: #2b2b2b;
-  --color-neutral-dark: #555;
-  --color-neutral: #808080;
-  --color-neutral-light: #aaa;
-  --color-neutral-light: #d5d5d5;
-  --color-neutral-lightest: #fff;
-  --color-base: #3498DB;
-  --color-accent: #d43900;
-  --color-text-dark-contrast: rgba(0,0,0,1);
-  --color-text-dark-high-emphasis: rgba(0,0,0,0.87);
-  --color-text-dark-low-emphasis: rgba(0,0,0,0.65);
-  --color-text-dark-disabled: rgba(0,0,0,0.38);
-  --color-text-light-contrast: rgba(255,255,255,1);
-  --color-text-light-high-emphasis: rgba(255,255,255,0.87);
-  --color-text-light-low-emphasis: rgba(255,255,255,0.65);
-  --color-text-light-disabled: rgba(255,255,255,0.38);
+  --color-neutral-darkest: #{ colors.$neutral-darkest };
+  --color-neutral-darker: #{ colors.$neutral-darker };
+  --color-neutral-dark: #{ colors.$neutral-dark };
+  --color-neutral: #{ colors.$neutral };
+  --color-neutral-light: #{ colors.$neutral-light };
+  --color-neutral-light: #{ colors.$neutral-light };
+  --color-neutral-lightest: #{ colors.$neutral-lightest };
+  --color-base: #{ colors.$base };
+  --color-base-light: #{ colors.$base-light };
+  --color-base-dark: #{ colors.$base-dark };
+  --color-accent: #{ colors.$accent };
+  --color-accent-light: #{ colors.$accent-light };
+  --color-accent-dark: #{ colors.$accent-dark };
+  --color-text-dark-contrast: #{ colors.$text-dark-contrast };
+  --color-text-dark-high-emphasis: #{ colors.$text-dark-high-emphasis };
+  --color-text-dark-low-emphasis: #{ colors.$text-dark-low-emphasis };
+  --color-text-dark-disabled: #{ colors.$text-dark-disabled };
+  --color-text-light-contrast: #{ colors.$text-light-contrast };
+  --color-text-light-high-emphasis: #{ colors.$text-light-high-emphasis };
+  --color-text-light-low-emphasis: #{ colors.$text-light-low-emphasis };
+  --color-text-light-disabled: #{ colors.$text-light-disabled };
 }
 
 html, body {

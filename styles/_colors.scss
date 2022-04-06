@@ -1,0 +1,23 @@
+@use 'sass:color';
+
+$neutral-darkest: #000;
+$neutral-darker: #2b2b2b;
+$neutral-dark: #555;
+$neutral: #808080;
+$neutral-light: #aaa;
+$neutral-light: #d5d5d5;
+$neutral-lightest: #fff;
+$base: #3498DB;
+$base-light: color.scale($base, $lightness: 25%);
+$base-dark: color.scale($base, $lightness: -25%);
+$accent: #d43900;
+$accent-light: color.scale($accent, $lightness: 25%);
+$accent-dark: color.scale($accent, $lightness: -25%);
+$text-dark-contrast: rgba(0,0,0,1);
+$text-dark-high-emphasis: rgba(0,0,0,0.87);
+$text-dark-low-emphasis: rgba(0,0,0,0.65);
+$text-dark-disabled: rgba(0,0,0,0.38);
+$text-light-contrast: rgba(255,255,255,1);
+$text-light-high-emphasis: rgba(255,255,255,0.87);
+$text-light-low-emphasis: rgba(255,255,255,0.65);
+$text-light-disabled: rgba(255,255,255,0.38);
