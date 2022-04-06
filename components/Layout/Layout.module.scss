@@ -74,9 +74,7 @@
 }
 
 .profileContainer {
-  display: flex;
-  flex-flow: column;
-  align-items: center;
+  text-align: center;
   padding: 1rem;
 }
 
@@ -84,7 +82,34 @@
   width: 8rem;
   height: 8rem;
   border-radius: 50%;
+  background-color: var(--color-neutral);
   overflow: hidden;
+}
+
+.profileName {
+  color: var(--color-text-dark-high-emphasis);
+  font-weight: 700;
+}
+
+.signInMessage {
+  font-size: 1rem;
+  color: var(--color-text-dark-high-emphasis);
+}
+
+.signInText {
+  font-size: 1rem;
+}
+
+.signInLink {
+  color: var(--color-base-dark);
+}
+
+.signOutText {
+  font-size: 0.75rem;
+}
+
+.signOutLink {
+  color: var(--color-base-dark);
 }
 
 .main {
