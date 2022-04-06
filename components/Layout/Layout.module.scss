@@ -1,7 +1,7 @@
 .container {
-  min-height: 100vh;
   display: grid;
-  grid-template-rows: auto 1fr auto;
+  grid-template-rows: 1fr auto;
+  min-height: 100vh;
 }
 
 .header {
@@ -117,7 +117,6 @@
 }
 
 .footer {
-  margin-top: auto;
   background-color: #333;
   color: white;
 }
