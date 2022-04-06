@@ -10,6 +10,14 @@
   --color-neutral-lightest: #fff;
   --color-base: #3498DB;
   --color-accent: #d43900;
+  --color-text-dark-contrast: rgba(0,0,0,1);
+  --color-text-dark-high-emphasis: rgba(0,0,0,0.87);
+  --color-text-dark-low-emphasis: rgba(0,0,0,0.65);
+  --color-text-dark-disabled: rgba(0,0,0,0.38);
+  --color-text-light-contrast: rgba(255,255,255,1);
+  --color-text-light-high-emphasis: rgba(255,255,255,0.87);
+  --color-text-light-low-emphasis: rgba(255,255,255,0.65);
+  --color-text-light-disabled: rgba(255,255,255,0.38);
 }
 
 html, body {
