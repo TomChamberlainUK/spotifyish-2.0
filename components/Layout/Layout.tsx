@@ -6,6 +6,30 @@ import LoadingThrobber from '@components/LoadingThrobber/LoadingThrobber';
 import Switch from '@components/Switch/Switch';
 import styles from './Layout.module.scss';
 
+type NavLink = {
+  name: string,
+  url: string,
+  isProtected: boolean
+}
+
+const navLinks: NavLink[] = [
+  {
+    name: 'Home',
+    url: '/',
+    isProtected: false
+  },
+  {
+    name: 'Profile',
+    url: '/profile',
+    isProtected: true
+  },
+  {
+    name: 'Recently Played',
+    url: '/recently-played',
+    isProtected: true
+  }
+]
+
 type Props = {
   children: ReactNode
 }
@@ -61,36 +85,24 @@ function Layout({ children }: Props) {
             }
           />
         }
-        {/* Standard navigation links */}
-        <Link href="/">
-          <a
-            onClick={() => setSidebarIsOpen(false)}
-            className={styles.sidebarLink}
-          >
-            Home
-          </a>
-        </Link>
-        {/* Auth protected navigation links */}
         {
-          status === 'authenticated' &&
-            <>
-              <Link href="/profile">
+          // Map nav links
+          navLinks.map(({ name, url, isProtected }) => {
+            // Only display protected links if user is authenticated
+            if (isProtected && status !== 'authenticated') return;
+            return (
+              <Link href={url}>
                 <a
                   onClick={() => setSidebarIsOpen(false)}
                   className={styles.sidebarLink}
                 >
-                  Profile
+                  <h2 className={styles.sidebarLinkName}>
+                    {name}
+                  </h2>
                 </a>
               </Link>
-              <Link href="/recently-played">
-                <a
-                  onClick={() => setSidebarIsOpen(false)}
-                  className={styles.sidebarLink}
-                >
-                  Recently Played
-                </a>
-              </Link>
-            </>
+            );
+          })
         }
       </nav>
       <main className={styles.main}>
