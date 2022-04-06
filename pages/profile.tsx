@@ -1,20 +1,12 @@
 import type { ProtectedNextPage } from '@tsTypes/ProtectedNextPage';
-import { useEffect  } from 'react';
-import { useSession } from 'next-auth/react';
 import Layout from '@components/Layout/Layout';
 import LoadingThrobber from '@components/LoadingThrobber/LoadingThrobber';
 import useGetUser from '@hooks/useGetUser';
 
 const Profile: ProtectedNextPage = () => {
 
-  const { data: session } = useSession()
-  const { user, error, isLoading } = useGetUser(session);
-
-  // Log errors
-  useEffect(() => {
-    if (!error) return;
-    console.error(error);
-  }, [error]);
+  // Get user data
+  const { user, error, isLoading } = useGetUser();
 
   return (
     <Layout>
@@ -28,7 +20,7 @@ const Profile: ProtectedNextPage = () => {
               <>
                 <img
                   src={user?.imageUrl ?? ''}
-                  alt={`profile picture for ${session?.user?.name ?? session?.user?.email ?? 'unknown user'}`}
+                  alt={`profile picture for ${user?.name ?? user?.email ?? 'unknown user'}`}
                 />
                 <p>
                   {user?.name ?? '(Username not found)'}

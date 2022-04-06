@@ -1,7 +1,5 @@
 import type { ProtectedNextPage } from '@tsTypes/ProtectedNextPage';
 import Head from 'next/head';
-import { useEffect } from 'react';
-import { useSession } from 'next-auth/react';
 import useGetRecentlyPlayed from '@hooks/useGetRecentlyPlayed';
 import Layout from '@components/Layout/Layout';
 import LoadingThrobber from '@components/LoadingThrobber/LoadingThrobber';
@@ -9,16 +7,8 @@ import TrackGrid, { TrackGridItem } from '@components/TrackGrid/TrackGrid';
 
 const RecentlyPlayed: ProtectedNextPage = () => {
 
-  const { data: session } = useSession();
-
   // Get recently played tracks data
-  const { tracks, artists, error, isLoading } = useGetRecentlyPlayed(session);
-
-  // Log errors
-  useEffect(() => {
-    if (!error) return;
-    console.error(error);
-  }, [error]);
+  const { tracks, artists, error, isLoading } = useGetRecentlyPlayed();
 
   return (
     <Layout>
