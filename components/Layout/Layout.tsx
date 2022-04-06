@@ -112,7 +112,10 @@ function Layout({ children }: Props) {
             // Only display protected links if user is authenticated
             if (isProtected && status !== 'authenticated') return;
             return (
-              <Link href={url}>
+              <Link
+                key={url}
+                href={url}
+              >
                 <a
                   onClick={() => setSidebarIsOpen(false)}
                   className={styles.sidebarLink}
