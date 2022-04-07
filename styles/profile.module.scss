@@ -1,0 +1,28 @@
+.container {
+  display: grid;
+  place-content: center;
+  height: 100%;
+}
+
+.textContainer {
+  text-align: center;
+}
+
+.profilePicture {
+  width: 20rem;
+  height: 20rem;
+  border-radius: 50%;
+}
+
+.userNameText {
+  color: var(--color-text-dark-high-emphasis);
+}
+
+.userEmailText {
+  color: var(--color-text-dark-low-emphasis);
+  font-size: 0.75rem;
+}
+
+.paragraph {
+  color: var(--color-text-dark-low-emphasis);
+}
