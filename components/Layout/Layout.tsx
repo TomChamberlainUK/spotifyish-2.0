@@ -48,8 +48,13 @@ function Layout({ children }: Props) {
   return (
     <div className={styles.container}>
       <header className={styles.header}>
-        <button onClick={toggleSidebar}>
-          menu
+        <button
+          onClick={toggleSidebar}
+          className={styles.iconButton}
+        >
+          <span className="material-icons">
+            menu
+          </span>
         </button>
         <h1 className={styles.pageTitle}>Spotifyish</h1>
       </header>
