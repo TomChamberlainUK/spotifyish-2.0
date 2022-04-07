@@ -1,7 +1,7 @@
 import type { ReactNode } from 'react';
 import { useState } from 'react';
 import Link from 'next/link';
-import { useSession, signIn, signOut } from 'next-auth/react';
+import { useSession } from 'next-auth/react';
 import LoadingThrobber from '@components/LoadingThrobber/LoadingThrobber';
 import Switch from '@components/Switch/Switch';
 import styles from './Layout.module.scss';
