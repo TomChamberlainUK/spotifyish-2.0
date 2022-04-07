@@ -134,6 +134,10 @@ function Layout({ children }: Props) {
           })
         }
       </nav>
+      <div
+        className={`${styles.pageFade} ${sidebarIsOpen && styles.isActive}`}
+        onClick={() => setSidebarIsOpen(false)}
+      />
       <main className={styles.main}>
         {children}
       </main>
