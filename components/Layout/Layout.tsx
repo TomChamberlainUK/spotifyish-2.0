@@ -1,5 +1,6 @@
 import type { ReactNode } from 'react';
 import { useState } from 'react';
+import Head from 'next/head';
 import Link from 'next/link';
 import { useSession } from 'next-auth/react';
 import LoadingThrobber from '@components/LoadingThrobber/LoadingThrobber';
@@ -47,6 +48,11 @@ function Layout({ children }: Props) {
 
   return (
     <div className={styles.container}>
+      <Head>
+        <title>Spotifyish</title>
+        <meta name="description" content="Browse your favourite tracks and artists." />
+        <link rel="icon" href="/favicon.svg" />
+      </Head>
       <header className={styles.header}>
         <button
           onClick={toggleSidebar}
