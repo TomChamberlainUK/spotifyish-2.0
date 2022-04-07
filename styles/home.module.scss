@@ -1,0 +1,22 @@
+.container {
+  display: grid;
+  place-content: center;
+  height: 100%;
+}
+
+.textContainer {
+  text-align: center;
+  width: 25rem;
+}
+
+.headphonesEmoji {
+  font-size: 12rem;
+}
+
+.paragraph {
+  line-height: 150%;
+}
+
+.italic {
+  font-style: italic;
+}
