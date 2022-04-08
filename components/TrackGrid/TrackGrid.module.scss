@@ -2,7 +2,8 @@
   display: grid;
   grid-template-columns: 1fr;
   margin: 0;
-  padding: 0;
+  padding: 1rem;
+  background-color: var(--color-neutral-lighter);
 
   @media screen and (min-width: 400px) {
     grid-template-columns: 1fr 1fr;
@@ -12,21 +13,44 @@
   @media screen and (min-width: 800px) {
     grid-template-columns: 1fr 1fr 1fr;
   }
+
+  @media screen and (min-width: 1200px) {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
 }
 
 .itemContainer {
+  box-sizing: border-box;
+  border-radius: 1rem;
+  padding: 1rem;
   width: 100%;
   list-style: none;
+  background-color: var(--color-neutral-lightest);
+  box-shadow: 0 0.125rem 0.125rem rgba(0, 0, 0, 0.3);
 }
 
 .itemImage {
   width: 100%;
+  border-radius: 1rem;
 }
 
 .itemTrackName {
-  font-size: 1.25rem;
+  margin: 0.5rem 0;
+  color: var(--color-text-dark-high-emphasis);
+  font-size: 1rem;
 }
 
 .itemArtistName {
+  margin: 0.5rem 0;
+  color: var(--color-text-dark-low-emphasis);
   font-size: 1rem;
+}
+
+.link {
+  color: inherit;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
 }

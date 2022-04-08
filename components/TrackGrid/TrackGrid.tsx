@@ -27,7 +27,7 @@ export function TrackGridItem({ id, name, artists, album, imageUrl }: Track) {
       />
       <h2 className={styles.itemTrackName}>
         <Link href={`/tracks/${id}`}>
-          <a>
+          <a className={styles.link}>
             {name}
           </a>
         </Link>
@@ -39,7 +39,9 @@ export function TrackGridItem({ id, name, artists, album, imageUrl }: Track) {
               <Fragment key={id}>
                 <span>
                   <Link href={`/artists/${id}`} >
-                    <a>{name}</a>
+                    <a className={styles.link}>
+                      {name}
+                    </a>
                   </Link>
                 </span>
                 {
