@@ -15,7 +15,6 @@ const RecentlyPlayed: ProtectedNextPage = () => {
       <Head>
         <title>Spotifyish | Recently Played</title>
         <meta name="description" content="Recently played music" />
-        <link rel="icon" href="/favicon.svg" />
       </Head>
       <h1>Recently Played</h1>
       {

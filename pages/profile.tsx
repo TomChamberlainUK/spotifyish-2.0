@@ -15,7 +15,6 @@ const Profile: ProtectedNextPage = () => {
       <Head>
         <title>{user?.name ?? 'Profile'} | Spotifyish</title>
         <meta name="description" content="View user profile information." />
-        <link rel="icon" href="/favicon.svg" />
       </Head>
       <div className={styles.container}>
         <div className={styles.textContainer}>

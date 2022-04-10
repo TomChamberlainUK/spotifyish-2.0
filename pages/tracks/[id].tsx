@@ -85,7 +85,6 @@ const TrackPage: ProtectedNextPage<Props> = ({
       <Head>
         <title>Spotifyish | {name}</title>
         <meta name="description" content={`${name}`} />
-        <link rel="icon" href="/favicon.svg" />
       </Head>
       <img src={imageUrl} />
       <h2>{name}</h2>

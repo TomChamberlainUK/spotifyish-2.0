@@ -52,7 +52,6 @@ function Layout({ children }: Props) {
       <Head>
         <title>Spotifyish</title>
         <meta name="description" content="Browse your favourite tracks and artists." />
-        <link rel="icon" href="/favicon.svg" />
       </Head>
       <header className={styles.header}>
         <button
