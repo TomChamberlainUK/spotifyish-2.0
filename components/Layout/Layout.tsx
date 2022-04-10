@@ -149,8 +149,11 @@ function Layout({ children }: Props) {
         {children}
       </main>
       <footer className={styles.footer}>
-        <p>
-          Site built by <ExternalLink href="https://github.com/TomChamberlainUK">Tom Chamberlain</ExternalLink>
+        <p className={styles.footerText}>
+          Spotifyish
+        </p>
+        <p className={styles.footerText}>
+          Site built by <ExternalLink href="https://github.com/TomChamberlainUK" className={styles.footerLink}>Tom Chamberlain</ExternalLink>
         </p>
       </footer>
     </div>

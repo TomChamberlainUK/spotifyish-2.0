@@ -126,8 +126,25 @@
 }
 
 .footer {
-  background-color: #333;
-  color: white;
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+  background-color: var(--color-neutral-darker);
+}
+
+.footerText {
+  margin: 0;
+  color: var(--color-text-light-low-emphasis);
+}
+
+.footerLink {
+  color: var(--color-text-light-high-emphasis);
+  text-decoration: none;
+
+  &:hover {
+    color: var(--color-text-light-contrast);
+    text-decoration: underline;
+  }
 }
 
 .pageFade {
