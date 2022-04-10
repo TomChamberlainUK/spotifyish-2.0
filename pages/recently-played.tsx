@@ -13,7 +13,7 @@ const RecentlyPlayed: ProtectedNextPage = () => {
   return (
     <Layout>
       <Head>
-        <title>Spotifyish | Recently Played</title>
+        <title>Recently Played | Spotifyish</title>
         <meta name="description" content="Recently played music" />
       </Head>
       <h1>Recently Played</h1>

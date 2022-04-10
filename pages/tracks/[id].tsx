@@ -83,7 +83,7 @@ const TrackPage: ProtectedNextPage<Props> = ({
   return (
     <Layout>
       <Head>
-        <title>Spotifyish | {name}</title>
+        <title>{name} | Spotifyish</title>
         <meta name="description" content={`${name}`} />
       </Head>
       <img src={imageUrl} />
