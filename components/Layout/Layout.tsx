@@ -3,6 +3,7 @@ import { useState } from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
 import { useSession } from 'next-auth/react';
+import ExternalLink from '@components/ExternalLink/ExternalLink';
 import LoadingThrobber from '@components/LoadingThrobber/LoadingThrobber';
 import Switch from '@components/Switch/Switch';
 import styles from './Layout.module.scss';
@@ -148,7 +149,9 @@ function Layout({ children }: Props) {
         {children}
       </main>
       <footer className={styles.footer}>
-        <p>Site built by Tom Chamberlain</p>
+        <p>
+          Site built by <ExternalLink href="https://github.com/TomChamberlainUK">Tom Chamberlain</ExternalLink>
+        </p>
       </footer>
     </div>
   );
