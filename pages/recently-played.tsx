@@ -4,6 +4,7 @@ import useGetRecentlyPlayed from '@hooks/useGetRecentlyPlayed';
 import Layout from '@components/Layout/Layout';
 import LoadingThrobber from '@components/LoadingThrobber/LoadingThrobber';
 import TrackGrid, { TrackGridItem } from '@components/TrackGrid/TrackGrid';
+import styles from '@styles/recently-played.module.scss';
 
 const RecentlyPlayed: ProtectedNextPage = () => {
 
@@ -16,7 +17,7 @@ const RecentlyPlayed: ProtectedNextPage = () => {
         <title>Recently Played | Spotifyish</title>
         <meta name="description" content="Recently played music" />
       </Head>
-      <h1>Recently Played</h1>
+      <h1 className={styles.heading}>Recently Played</h1>
       {
         isLoading
           ? <LoadingThrobber />
