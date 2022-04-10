@@ -1,13 +1,13 @@
 .gridContainer {
   display: grid;
   grid-template-columns: 1fr;
+  gap: 1rem;
   margin: 0;
   padding: 1rem;
   background-color: var(--color-neutral-lighter);
 
   @media screen and (min-width: 400px) {
     grid-template-columns: 1fr 1fr;
-    gap: 1rem;
   }
 
   @media screen and (min-width: 800px) {
