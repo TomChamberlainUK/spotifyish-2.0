@@ -37,6 +37,7 @@ export default function useGetRecentlyPlayed() {
             }),
             album: track.album.name,
             imageUrl: track.album.images[0].url,
+            previewUrl: track.preview_url
           });
         }
         
