@@ -3,6 +3,7 @@ import { useState } from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
 import { useSession } from 'next-auth/react';
+import MusicPlayer from '@components/MusicPlayer/MusicPlayer';
 import ExternalLink from '@components/ExternalLink/ExternalLink';
 import LoadingThrobber from '@components/LoadingThrobber/LoadingThrobber';
 import Switch from '@components/Switch/Switch';
@@ -155,6 +156,7 @@ function Layout({ children }: Props) {
           Site built by <ExternalLink href="https://github.com/TomChamberlainUK" className={styles.footerLink}>Tom Chamberlain</ExternalLink>
         </p>
       </footer>
+      <MusicPlayer />
     </div>
   );
 }
