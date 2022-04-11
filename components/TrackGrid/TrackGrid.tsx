@@ -1,8 +1,9 @@
 import type { ReactNode } from 'react';
 import type { Track } from '@tsTypes/Track';
 import type { Artist } from '@tsTypes/Artist';
-import { Fragment } from 'react';
+import { Fragment, useContext } from 'react';
 import Link from 'next/link';
+import MusicPlayerContext from '@context/MusicPlayer/MusicPlayerContext';
 import styles from './TrackGrid.module.scss';
 
 type TrackGridProps = {
@@ -17,13 +18,21 @@ export default function TrackGrid({ children }: TrackGridProps) {
   );
 }
 
-export function TrackGridItem({ id, name, artists, album, imageUrl }: Track) {
+export function TrackGridItem({ id, name, artists, album, imageUrl, previewUrl }: Track) {
+
+  const musicPlayerContext = useContext(MusicPlayerContext);
+
   return (
     <li className={styles.itemContainer}>
       <img
         src={imageUrl}
         alt={`Album artwork for ${album}`}
         className={styles.itemImage}
+        onClick={() => {
+          if (musicPlayerContext?.setCurrentlyPlaying && previewUrl) {
+            musicPlayerContext.setCurrentlyPlaying(previewUrl);
+          }
+        }}
       />
       <h2 className={styles.itemTrackName}>
         <Link href={`/tracks/${id}`}>

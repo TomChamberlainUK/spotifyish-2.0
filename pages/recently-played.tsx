@@ -25,7 +25,7 @@ const RecentlyPlayed: ProtectedNextPage = () => {
             ? <p>An error has occurred, please refresh your browser.</p>
             : <TrackGrid>
                 {
-                  tracks.map(({ id, name, artists, album, imageUrl }) => {
+                  tracks.map(({ id, name, artists, album, imageUrl, previewUrl }) => {
                     return (
                       <TrackGridItem
                         key={id}
@@ -34,6 +34,7 @@ const RecentlyPlayed: ProtectedNextPage = () => {
                         artists={artists}
                         album={album}
                         imageUrl={imageUrl}
+                        previewUrl={previewUrl}
                       />
                     );
                   })
