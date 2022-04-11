@@ -32,6 +32,12 @@
 .itemImage {
   width: 100%;
   border-radius: 1rem;
+  background-color: white;
+
+  &:hover {
+    opacity: 80%;
+    cursor: pointer;
+  }
 }
 
 .itemTrackName {
