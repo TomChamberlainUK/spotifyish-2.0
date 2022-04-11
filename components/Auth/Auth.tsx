@@ -13,10 +13,6 @@ export default function Auth({ children }: Props) {
   return (
     user
       ? <>{children}</>
-      : (
-        <Layout>
-          <LoadingThrobber />
-        </Layout>
-      )
+      : <LoadingThrobber />
   );
 }
