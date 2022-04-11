@@ -24,16 +24,21 @@ export function TrackGridItem({ id, name, artists, album, imageUrl, previewUrl }
 
   return (
     <li className={styles.itemContainer}>
-      <img
-        src={imageUrl}
-        alt={`Album artwork for ${album}`}
-        className={styles.itemImage}
-        onClick={() => {
-          if (musicPlayerContext?.setCurrentlyPlaying && previewUrl) {
-            musicPlayerContext.setCurrentlyPlaying(previewUrl);
-          }
-        }}
-      />
+      <div className={styles.itemImageWrapper}>
+        <img
+          src={imageUrl}
+          alt={`Album artwork for ${album}`}
+          className={styles.itemImage}
+          onClick={() => {
+            if (musicPlayerContext?.setCurrentlyPlaying && previewUrl) {
+              musicPlayerContext.setCurrentlyPlaying(previewUrl);
+            }
+          }}
+        />
+        <span className={`${styles.itemImageIcon} material-icons`}>
+          play_circle_filled
+        </span>
+      </div>
       <h2 className={styles.itemTrackName}>
         <Link href={`/tracks/${id}`}>
           <a className={styles.link}>
