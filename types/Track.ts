@@ -5,5 +5,6 @@ export type Track = {
   name: string,
   artists: Artist[],
   album: string,
-  imageUrl: string
+  imageUrl: string,
+  previewUrl?: string
 }
