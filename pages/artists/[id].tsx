@@ -2,7 +2,6 @@ import type { GetServerSideProps } from 'next';
 import type { ProtectedNextPage } from '@tsTypes/ProtectedNextPage';
 import Head from 'next/head';
 import { getSession } from 'next-auth/react';
-import Layout from '@components/Layout/Layout';
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
 
@@ -63,7 +62,7 @@ const ArtistPage: ProtectedNextPage<Props> = ({
   popularity
 }) => {
   return (
-    <Layout>
+    <>
       <Head>
         <title>{name} | Spotifyish</title>
         <meta name="description" content={`${name}`} />
@@ -73,7 +72,7 @@ const ArtistPage: ProtectedNextPage<Props> = ({
       <p>Genres: {genres.join(', ')}</p>
       <p>Followers: {followers}</p>
       <p>Popularity: {popularity}</p>
-    </Layout>
+    </>
   );
 }
 

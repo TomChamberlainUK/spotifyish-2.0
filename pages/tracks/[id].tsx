@@ -5,7 +5,6 @@ import { Fragment } from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
 import { getSession } from 'next-auth/react';
-import Layout from '@components/Layout/Layout';
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
 
@@ -81,7 +80,7 @@ const TrackPage: ProtectedNextPage<Props> = ({
   previewUrl
 }) => {
   return (
-    <Layout>
+    <>
       <Head>
         <title>{name} | Spotifyish</title>
         <meta name="description" content={`${name}`} />
@@ -124,7 +123,7 @@ const TrackPage: ProtectedNextPage<Props> = ({
               No Audio available
             </p>
       }
-    </Layout>
+    </>
   );
 }
 

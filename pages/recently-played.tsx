@@ -1,7 +1,6 @@
 import type { ProtectedNextPage } from '@tsTypes/ProtectedNextPage';
 import Head from 'next/head';
 import useGetRecentlyPlayed from '@hooks/useGetRecentlyPlayed';
-import Layout from '@components/Layout/Layout';
 import LoadingThrobber from '@components/LoadingThrobber/LoadingThrobber';
 import TrackGrid, { TrackGridItem } from '@components/TrackGrid/TrackGrid';
 import styles from '@styles/recently-played.module.scss';
@@ -12,7 +11,7 @@ const RecentlyPlayed: ProtectedNextPage = () => {
   const { tracks, artists, error, isLoading } = useGetRecentlyPlayed();
 
   return (
-    <Layout>
+    <>
       <Head>
         <title>Recently Played | Spotifyish</title>
         <meta name="description" content="Recently played music" />
@@ -41,7 +40,7 @@ const RecentlyPlayed: ProtectedNextPage = () => {
                 }
               </TrackGrid>
       }
-    </Layout>
+    </>
   );
 }
 
