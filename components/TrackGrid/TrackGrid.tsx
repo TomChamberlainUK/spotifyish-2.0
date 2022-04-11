@@ -36,7 +36,11 @@ export function TrackGridItem({ id, name, artists, album, imageUrl, previewUrl }
           }}
         />
         <span className={`${styles.itemImageIcon} material-icons`}>
-          play_circle_filled
+          {
+            previewUrl
+              ? 'play_circle_filled'
+              : 'play_disabled'
+          }
         </span>
       </div>
       <h2 className={styles.itemTrackName}>
