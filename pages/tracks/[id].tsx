@@ -116,8 +116,13 @@ const TrackPage: ProtectedNextPage<Props> = ({
       <p>Track length: {duration}</p>
       <p>Popularity: {popularity}</p>
       {
-        previewUrl &&
-          <p>Check it out <Link href={previewUrl}><a>Here</a></Link></p>
+        previewUrl
+          ? <audio controls>
+              <source src={previewUrl} />
+            </audio>
+          : <p>
+              No Audio available
+            </p>
       }
     </Layout>
   );
