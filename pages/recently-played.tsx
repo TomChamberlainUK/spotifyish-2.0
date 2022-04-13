@@ -11,12 +11,14 @@ const RecentlyPlayed: ProtectedNextPage = () => {
   const { tracks, artists, error, isLoading } = useGetRecentlyPlayed();
 
   return (
-    <>
+    <div className={styles.container}>
       <Head>
         <title>Recently Played | Spotifyish</title>
         <meta name="description" content="Recently played music" />
       </Head>
-      <h1 className={styles.heading}>Recently Played</h1>
+      <header className={styles.headerContainer}>
+        <h1 className={styles.heading}>Music | Recently Played</h1>
+      </header>
       {
         isLoading
           ? <LoadingThrobber />
@@ -40,7 +42,7 @@ const RecentlyPlayed: ProtectedNextPage = () => {
                 }
               </TrackGrid>
       }
-    </>
+    </div>
   );
 }
 
