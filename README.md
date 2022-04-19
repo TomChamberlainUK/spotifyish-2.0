@@ -1,34 +1,54 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# 🎧 Spotify*ish*
+
+> A live WIP version of this project is available [here](https://spotifyish.vercel.app/). Please note this is an early proof of concept prototype with few features and some bugs — most notably refresh tokens currently aren't processed, resulting in users needing to sign out and back in again hourly else they will encounter errors. I'm currently building the full design for this project in Figma [here](https://www.figma.com/file/ue8HWGgcciFw6fqfhmEg08/Spotifyish?node-id=21%3A352).
+
+Spotifyish is a simple music app that consumes the Spotify Web API.
 
 ## Getting Started
 
-First, run the development server:
+> Ensure both Node/npm are installed (I'm using Node.js v17.3.1 and npm v8.3.0).
+
+Download, clone, or fork this repository, navigate to the route folder in a terminal and enter:
+
+```bash
+npm i
+```
+
+This will install all dependencies and ensure the app is ready to run.
+
+## Scripts
+
+> This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+
+### Dev
+
+To start the app running in development mode at [http://localhost:3000](http://localhost:3000):
 
 ```bash
 npm run dev
-# or
-yarn dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Build
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+To build the application ready for production:
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+```bash
+npm run build
+```
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+### Start
 
-## Learn More
+Once built the application is ready to be served at [http://localhost:3000](http://localhost:3000):
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+npm run start
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Tech Stack
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+This project was built using:
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- [Next.js](https://nextjs.org/)
+- [React](https://reactjs.org/)
+- [Typescript](https://www.typescriptlang.org/)
+- [SASS](https://sass-lang.com/)
