@@ -1,6 +1,6 @@
 # 🎧 Spotify*ish*
 
-> A live WIP version of this project is available [here](https://spotifyish.vercel.app/). Please note this is an early proof of concept prototype with few features and some bugs — most notably refresh tokens currently aren't processed, resulting in users needing to sign out and back in again hourly else they will encounter errors. I'm currently building the full design for this project in Figma [here](https://www.figma.com/file/ue8HWGgcciFw6fqfhmEg08/Spotifyish?node-id=21%3A352).
+> A live WIP version of this project is available [here](https://spotifyish.vercel.app/). Please note this is an early proof of concept prototype with few features and some bugs — most notably refresh tokens currently aren't processed, resulting in users needing to sign out and back in again hourly else they will encounter errors. I'm currently building the full design for this project in Figma [here](https://www.figma.com/file/ue8HWGgcciFw6fqfhmEg08/Spotifyish).
 
 Spotifyish is a simple music app that consumes the Spotify Web API.
 
