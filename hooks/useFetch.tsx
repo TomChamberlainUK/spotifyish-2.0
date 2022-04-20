@@ -31,8 +31,8 @@ export default function useFetch(url: string) {
 
   // Get data and/or errors
   const { data, error } = useSWR(
-    // Only make requests if session is valid
-    session
+    // Only make requests if session is valid and url isn't empty
+    session && url
       ? [url, session.accessToken]
       : null,
     fetcher
