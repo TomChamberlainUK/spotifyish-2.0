@@ -1,0 +1,92 @@
+// Standard
+
+@mixin title($color: null) {
+  font-size: 2rem;
+  font-weight: bold;
+  line-height: 125%;
+
+  @if ($color) {
+    color: $color;
+  }
+}
+
+@mixin heading($color: null) {
+  font-size: 1.5rem;
+  font-weight: bold;
+  line-height: 125%;
+
+  @if ($color) {
+    color: $color;
+  }
+}
+
+@mixin subheading($color: null) {
+  font-size: 1rem;
+  font-weight: bold;
+  line-height: 125%;
+
+  @if ($color) {
+    color: $color;
+  }
+}
+
+@mixin paragraph($color: null) {
+  font-size: 1rem;
+  line-height: 150%;
+
+  @if ($color) {
+    color: $color;
+  }
+}
+
+@mixin note($color: null) {
+  font-size: 0.75rem;
+  line-height: 150%;
+
+  @if ($color) {
+    color: $color;
+  }
+}
+
+
+// List
+
+@mixin listMain($color: null) {
+  font-size: 1rem;
+  line-height: 100%;
+
+  @if ($color) {
+    color: $color;
+  }
+}
+
+@mixin listSub($color: null) {
+  font-size: 0.75rem;
+  line-height: 100%;
+
+  @if ($color) {
+    color: $color;
+  }
+}
+
+
+// Card
+
+@mixin cardMain($color: null) {
+  font-size: 0.75rem;
+  font-weight: bold;
+  line-height: 100%;
+
+  @if ($color) {
+    color: $color;
+  }
+}
+
+@mixin cardSub($color: null) {
+  font-size: 0.5rem;
+  line-height: 100%;
+
+  @if ($color) {
+    color: $color;
+  }
+}
