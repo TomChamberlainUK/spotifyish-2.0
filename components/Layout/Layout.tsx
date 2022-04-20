@@ -27,8 +27,8 @@ const navLinks: NavLink[] = [
     isProtected: true
   },
   {
-    name: 'Recently Played',
-    url: '/recently-played',
+    name: 'Music',
+    url: '/music',
     isProtected: true
   }
 ]

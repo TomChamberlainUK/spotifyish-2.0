@@ -55,8 +55,8 @@ const Home: NextPage = () => {
                       <a>Profile</a>
                     </Link>
                     {' | '}
-                    <Link href="/recently-played">
-                      <a>Recently Played</a>
+                    <Link href="/music">
+                      <a>Music</a>
                     </Link>
                   </p>
                 )
