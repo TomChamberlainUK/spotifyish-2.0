@@ -1,3 +1,5 @@
+@use './typography';
+
 .container {
   display: grid;
   place-content: center;
@@ -13,8 +15,14 @@
   font-size: 12rem;
 }
 
+.heading {
+  @include typography.title(var(--color-text-contrast));
+  margin: 1rem 0;
+}
+
 .paragraph {
-  line-height: 150%;
+  @include typography.paragraph(var(--color-text-dark-high-emphasis));
+  margin: 0.5rem 0;
 }
 
 .italic {
