@@ -20,7 +20,6 @@ const Home: NextPage = () => {
         <p className={styles.paragraph}>
           Browse your favourite tracks and artists on a site that's <span className={styles.italic}>almost</span> as good as the real thing!
         </p>
-        <p className={styles.paragraph}>
           <Switch
             condition={status}
             caseHandlers={[
@@ -32,18 +31,26 @@ const Home: NextPage = () => {
                 conditionCase: 'unauthenticated',
                 handler: (
                   <>
+                    <p className={styles.note}>
+                      Spotifyish requires a Spotify account,
+                      {' '}
+                      <a
+                        href="https://www.spotify.com/uk/signup"
+                        className={styles.noteLink}
+                      >
+                        sign up here
+                      </a>
+                    </p>
                     <Link href="/api/auth/signin">
-                      <a>Sign In</a>
+                      <a className={styles.buttonLink}>Sign In</a>
                     </Link>
-                    {' '}
-                    to get started
                   </>
                 )
               },
               {
                 conditionCase: 'authenticated',
                 handler: (
-                  <>
+                  <p className={styles.paragraph}>
                     <Link href="/profile">
                       <a>Profile</a>
                     </Link>
@@ -51,13 +58,16 @@ const Home: NextPage = () => {
                     <Link href="/recently-played">
                       <a>Recently Played</a>
                     </Link>
-                  </>
+                  </p>
                 )
               }
             ]}
-            defaultHandler={<>An error has occurred, please refresh your browser.</>}
+            defaultHandler={
+              <p className={styles.paragraph}>
+                An error has occurred, please refresh your browser.
+              </p>
+            }
           />
-        </p>
       </div>
     </div>
   );
