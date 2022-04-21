@@ -1,7 +1,12 @@
+@use 'styles/typography';
+
 .container {
+  display: flex;
+  flex-flow: column;
+  gap: 0.5rem;
   box-sizing: border-box;
-  border-radius: 1rem;
-  padding: 1rem;
+  border-radius: 0.5rem;
+  padding: 0.75rem;
   width: 100%;
   list-style: none;
   background-color: var(--color-neutral-lightest);
@@ -12,7 +17,7 @@
   position: relative;
   aspect-ratio: 1/1;
   width: 100%;
-  border-radius: 1rem;
+  border-radius: 0.5rem;
   overflow: hidden;
 
   &:hover {
@@ -50,15 +55,13 @@
 }
 
 .trackName {
-  margin: 0.5rem 0;
-  color: var(--color-text-dark-high-emphasis);
-  font-size: 1rem;
+  @include typography.cardMain(var(--color-text-dark-high-emphasis));
+  margin: 0;
 }
 
 .artistName {
-  margin: 0.5rem 0;
-  color: var(--color-text-dark-low-emphasis);
-  font-size: 1rem;
+  @include typography.cardSub(var(--color-text-dark-low-emphasis));
+  margin: 0;
 }
 
 .link {
