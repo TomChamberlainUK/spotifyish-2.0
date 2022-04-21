@@ -3,6 +3,7 @@ import { useState } from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
 import { useSession } from 'next-auth/react';
+import MenuIcon from '@mui/icons-material/Menu';
 import MusicPlayer from '@components/MusicPlayer/MusicPlayer';
 import ExternalLink from '@components/ExternalLink/ExternalLink';
 import LoadingThrobber from '@components/LoadingThrobber/LoadingThrobber';
@@ -59,9 +60,7 @@ function Layout({ children }: Props) {
           onClick={toggleSidebar}
           className={styles.iconButton}
         >
-          <span className="material-icons">
-            menu
-          </span>
+          <MenuIcon />
         </button>
         <h1 className={styles.pageTitle}>Spotifyish</h1>
       </header>

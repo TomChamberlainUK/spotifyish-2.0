@@ -27,7 +27,7 @@
       opacity: 80%;
     }
 
-    .imageIcon {
+    .playbackIcon {
       opacity: 100%;
     }
   }
@@ -39,7 +39,7 @@
   background-color: white;
 }
 
-.imageIcon {
+.playbackIconWrapper {
   position: absolute;
   top: 0;
   left: 0;
@@ -47,8 +47,12 @@
   bottom: 0;
   display: grid;
   place-content: center;
+}
+
+.playbackIcon {
   border-radius: inherit;
-  font-size: 6rem;
+  // important flag used to override material-icons global styles due to how next js handles css in production
+  font-size: 6rem !important;
   color: white;
   opacity: 0;
   pointer-events: none;

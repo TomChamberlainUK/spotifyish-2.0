@@ -2,6 +2,8 @@ import type { Track } from '@tsTypes/Track';
 import type { Artist } from '@tsTypes/Artist';
 import { Fragment, useContext } from 'react';
 import Link from 'next/link';
+import PlaybackIcon from '@mui/icons-material/PlayCircleFilled';
+import PlaybackDisabledIcon from '@mui/icons-material/PlayDisabled';
 import MusicPlayerContext from '@context/MusicPlayer/MusicPlayerContext';
 import styles from './TrackCard.module.scss';
 
@@ -22,13 +24,13 @@ export default function TrackCard({ id, name, artists, album, imageUrl, previewU
             }
           }}
         />
-        <span className={`${styles.imageIcon} material-icons`}>
+        <div className={styles.playbackIconWrapper}>
           {
             previewUrl
-              ? 'play_circle_filled'
-              : 'play_disabled'
+              ? <PlaybackIcon className={styles.playbackIcon} />
+              : <PlaybackDisabledIcon className={styles.playbackIcon} />
           }
-        </span>
+        </div>
       </div>
       <h2 className={styles.trackName}>
         <Link href={`/tracks/${id}`}>
