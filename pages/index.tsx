@@ -20,54 +20,54 @@ const Home: NextPage = () => {
         <p className={styles.paragraph}>
           Browse your favourite tracks and artists on a site that's <span className={styles.italic}>almost</span> as good as the real thing!
         </p>
-          <Switch
-            condition={status}
-            caseHandlers={[
-              {
-                conditionCase: 'loading',
-                handler: <>Loading...</>
-              },
-              {
-                conditionCase: 'unauthenticated',
-                handler: (
-                  <>
-                    <p className={styles.note}>
-                      Spotifyish requires a Spotify account,
-                      {' '}
-                      <a
-                        href="https://www.spotify.com/uk/signup"
-                        className={styles.noteLink}
-                      >
-                        sign up here
-                      </a>
-                    </p>
-                    <Link href="/api/auth/signin">
-                      <a className={styles.buttonLink}>Sign In</a>
-                    </Link>
-                  </>
-                )
-              },
-              {
-                conditionCase: 'authenticated',
-                handler: (
-                  <p className={styles.paragraph}>
-                    <Link href="/profile">
-                      <a>Profile</a>
-                    </Link>
-                    {' | '}
-                    <Link href="/music">
-                      <a>Music</a>
-                    </Link>
+        <Switch
+          condition={status}
+          caseHandlers={[
+            {
+              conditionCase: 'loading',
+              handler: <>Loading...</>
+            },
+            {
+              conditionCase: 'unauthenticated',
+              handler: (
+                <>
+                  <p className={styles.note}>
+                    Spotifyish requires a Spotify account,
+                    {' '}
+                    <a
+                      href="https://www.spotify.com/uk/signup"
+                      className={styles.noteLink}
+                    >
+                      sign up here
+                    </a>
                   </p>
-                )
-              }
-            ]}
-            defaultHandler={
-              <p className={styles.paragraph}>
-                An error has occurred, please refresh your browser.
-              </p>
+                  <Link href="/api/auth/signin">
+                    <a className={styles.buttonLink}>Sign In</a>
+                  </Link>
+                </>
+              )
+            },
+            {
+              conditionCase: 'authenticated',
+              handler: (
+                <p className={styles.paragraph}>
+                  <Link href="/profile">
+                    <a>Profile</a>
+                  </Link>
+                  {' | '}
+                  <Link href="/music">
+                    <a>Music</a>
+                  </Link>
+                </p>
+              )
             }
-          />
+          ]}
+          defaultHandler={
+            <p className={styles.paragraph}>
+              An error has occurred, please refresh your browser.
+            </p>
+          }
+        />
       </div>
     </div>
   );
