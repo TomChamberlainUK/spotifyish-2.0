@@ -1,0 +1,13 @@
+diff --git a/node_modules/@types/spotify-api/index.d.ts b/node_modules/@types/spotify-api/index.d.ts
+index 1be7b68..a1fad28 100755
+--- a/node_modules/@types/spotify-api/index.d.ts
++++ b/node_modules/@types/spotify-api/index.d.ts
+@@ -1614,7 +1614,7 @@ declare namespace SpotifyApi {
+      * [](https://developer.spotify.com/web-api/web-api-personalization-endpoints/get-recently-played/#play-history-object)
+      */
+     interface PlayHistoryObject {
+-        track: TrackObjectSimplified;
++        track: TrackObjectFull;
+         played_at: string;
+         context: ContextObject;
+     }
