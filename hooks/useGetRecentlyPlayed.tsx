@@ -3,6 +3,12 @@ import type { Track } from '@tsTypes/Track';
 import { useEffect, useState } from 'react';
 import useFetch from './useFetch';
 
+type ResponseType = {
+  data: SpotifyApi.UsersRecentlyPlayedTracksResponse | undefined,
+  error: SpotifyApi.ErrorObject | undefined,
+  isLoading: boolean
+}
+
 export default function useGetRecentlyPlayed() {
 
   // Init state for tracks and artists
@@ -10,7 +16,7 @@ export default function useGetRecentlyPlayed() {
   const [artists, setArtists] = useState<Artist[]>([]);
 
   // Fetch recently played tracks data
-  const { data, error, isLoading } = useFetch('https://api.spotify.com/v1/me/player/recently-played');
+  const { data, error, isLoading }: ResponseType = useFetch('https://api.spotify.com/v1/me/player/recently-played');
 
   // If data was successfully fetched
   useEffect(() => {
