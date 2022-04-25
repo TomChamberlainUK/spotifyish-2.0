@@ -1,7 +1,7 @@
 import type { Track } from '@tsTypes/Track';
-import type { Artist } from '@tsTypes/Artist';
 import { useState, useEffect } from 'react';
 import useFetch from '@hooks/useFetch';
+import parseSpotifyApiTracks from '@utils/parseSpotifyApiTracks';
 
 type ResponseType = {
   data: SpotifyApi.UsersSavedTracksResponse,
@@ -17,33 +17,10 @@ export default function useGetSavedTracks() {
   useEffect(() => {
     if (!error && data) {
 
-      // Init maps to efficiently parse track data and prevent duplicates with O(n) time complexity
-      const uniqueTracks = new Map<string, Track>();
-  
-      // Loop through each track
-      for (const { track } of data.items) {
-  
-        // If the track is not already mapped, parse and map it
-        if (!uniqueTracks.has(track.id)) {
-          uniqueTracks.set(track.id, {
-            id: track.id,
-            name: track.name,
-            artists: track.artists.map(({ id, name }: Artist) => {
-              return {
-                id,
-                name
-              }
-            }),
-            album: track.album.name,
-            imageUrl: track.album.images[0].url,
-            previewUrl: track.preview_url
-          });
-        }
-      
-      }
-  
-      // Update tracks state
-      setTracks(Array.from(uniqueTracks.values()));
+      // Parse relevant tracks data from fetch response and update state
+      const spotifyApiTracks = data.items.map(({ track }) => track);
+      const parsedTracks = parseSpotifyApiTracks(spotifyApiTracks);
+      setTracks(parsedTracks);
   
     }
   }, [data, error]);
