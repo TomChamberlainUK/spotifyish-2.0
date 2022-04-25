@@ -1,14 +1,20 @@
+import type { ChangeEvent } from 'react';
 import type { ProtectedNextPage } from '@tsTypes/ProtectedNextPage';
 import Head from 'next/head';
-import useGetRecentlyPlayed from '@hooks/useGetRecentlyPlayed';
-import LoadingThrobber from '@components/LoadingThrobber/LoadingThrobber';
-import CardGrid from '@components/CardGrid/CardGrid';
-import TrackCard from '@components/TrackCard/TrackCard';
+import { useState } from 'react';
+import Switch from '@components/Switch/Switch';
+import RecentlyPlayedMusic from '@components/Music/RecentlyPlayedMusic';
+import TopMusic from '@components/Music/TopMusic';
+import SavedMusic from '@components/Music/SavedMusic';
 import styles from '@styles/music.module.scss';
 
 const MusicPage: ProtectedNextPage = () => {
 
-  const { tracks, error, isLoading } = useGetRecentlyPlayed();
+  const [displaySelection, setDisplaySelection] = useState('recently-played');
+
+  function handleDisplaySelectionChange(event: ChangeEvent<HTMLSelectElement>) {
+    setDisplaySelection(event.target.value);
+  }
 
   return (
     <>
@@ -17,33 +23,33 @@ const MusicPage: ProtectedNextPage = () => {
         <meta name="description" content="Browse music" />
       </Head>
       <header className={styles.header}>
-        <h1 className={styles.heading}>
-          Recently Played
-        </h1>
+        <label>
+          <span className={styles.hiddenLabel}>Display</span>
+          <select value={displaySelection} onChange={handleDisplaySelectionChange}>
+            <option value="recently-played">Recently Played</option>
+            <option value="top">Top</option>
+            <option value="saved">Saved</option>
+          </select>
+        </label>
       </header>
-      {
-        isLoading
-          ? <LoadingThrobber />
-          : error
-            ? <p>An error has occurred, please refresh your browser.</p>
-            : <CardGrid>
-                {
-                  tracks.map(({ id, name, artists, album, imageUrl, previewUrl }) => {
-                    return (
-                      <TrackCard
-                        key={id}
-                        id={id}
-                        name={name}
-                        artists={artists}
-                        album={album}
-                        imageUrl={imageUrl}
-                        previewUrl={previewUrl}
-                      />
-                    );
-                  })
-                }
-              </CardGrid>
-      }
+      <Switch
+        condition={displaySelection}
+        caseHandlers={[
+          {
+            conditionCase: 'recently-played',
+            handler: <RecentlyPlayedMusic />
+          },
+          {
+            conditionCase: 'top',
+            handler: <TopMusic />
+          },
+          {
+            conditionCase: 'saved',
+            handler: <SavedMusic />
+          }
+        ]}
+        defaultHandler={<p>An error has occurred</p>}
+      />
     </>
   );
 }
