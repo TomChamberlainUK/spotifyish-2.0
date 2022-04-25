@@ -9,6 +9,8 @@ export default NextAuth({
           scope: [
             'user-read-email',
             'user-read-recently-played',
+            'user-library-read',
+            'user-top-read'
           ].join(',')
         }),
       clientId: process.env.SPOTIFY_CLIENT_ID ?? '',
