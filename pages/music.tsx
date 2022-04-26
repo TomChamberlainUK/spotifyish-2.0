@@ -25,7 +25,11 @@ const MusicPage: ProtectedNextPage = () => {
       <header className={styles.header}>
         <label>
           <span className={styles.hiddenLabel}>Display</span>
-          <select value={displaySelection} onChange={handleDisplaySelectionChange}>
+          <select
+            value={displaySelection}
+            onChange={handleDisplaySelectionChange}
+            className={styles.dropdown}
+          >
             <option value="recently-played">Recently Played</option>
             <option value="top">Top</option>
             <option value="saved">Saved</option>
