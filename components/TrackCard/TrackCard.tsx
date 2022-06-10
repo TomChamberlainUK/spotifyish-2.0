@@ -13,16 +13,18 @@ export default function TrackCard({ id, name, artists, album, imageUrl, previewU
 
   return (
     <li className={styles.container}>
-      <div className={styles.imageWrapper}>
+      <div className={styles.imageWrapper}
+        onClick={() => {
+          console.log(previewUrl)
+          if (musicPlayerContext?.setCurrentlyPlaying && previewUrl) {
+            musicPlayerContext.setCurrentlyPlaying(previewUrl);
+          }
+        }}
+      >
         <img
           src={imageUrl}
           alt={`Album artwork for ${album}`}
           className={styles.image}
-          onClick={() => {
-            if (musicPlayerContext?.setCurrentlyPlaying && previewUrl) {
-              musicPlayerContext.setCurrentlyPlaying(previewUrl);
-            }
-          }}
         />
         <div className={styles.playbackIconWrapper}>
           {
