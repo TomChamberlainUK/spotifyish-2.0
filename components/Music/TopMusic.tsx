@@ -1,33 +1,26 @@
-import CardGrid from '@components/CardGrid/CardGrid';
-import TrackCard from '@components/TrackCard/TrackCard';
-import LoadingThrobber from '@components/LoadingThrobber/LoadingThrobber';
-import useGetTopTracks from '@hooks/useGetTopTracks';
+import TopTracks from '@components/Music/TopTracks';
+import TopArtists from '@components/Music/TopArtists';
 
-export default function TopMusic() {
+type Props = {
+  filter: string
+}
 
-  const { tracks, error, isLoading } = useGetTopTracks();
+export default function TopMusic({ filter }: Props) {
 
-  return (
-    isLoading
-      ? <LoadingThrobber />
-      : error
-        ? <p>An error has occurred, please refresh your browser.</p>
-        : <CardGrid>
-            {
-              tracks.map(({ id, name, artists, album, imageUrl, previewUrl }) => {
-                return (
-                  <TrackCard
-                    key={id}
-                    id={id}
-                    name={name}
-                    artists={artists}
-                    album={album}
-                    imageUrl={imageUrl}
-                    previewUrl={previewUrl}
-                  />
-                );
-              })
-            }
-          </CardGrid>
-  );
+  switch (filter) {
+
+    case 'tracks': {
+      return <TopTracks />
+    }
+
+    case 'artists': {
+      return <TopArtists />
+    }
+
+    default: {
+      return <p>An error has occurred, please refresh your browser.</p>
+    }
+
+  }
+
 }

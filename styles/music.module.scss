@@ -1,12 +1,18 @@
 @use './typography';
 
 .header {
-  display: flex;
-  align-items: center;
   box-sizing: border-box;
   padding: 0 1rem;
   height: 3rem;
   background-color: var(--color-neutral-lightest);
+}
+
+.selectionForm {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 100%;
 }
 
 .heading {
@@ -41,4 +47,38 @@
   padding: 1rem;
   min-height: 100%;
   background-color: var(--color-neutral-lighter);
+}
+
+.filterButtonsGroup {
+  display: flex;
+  gap: 1rem;
+  border: none;
+  margin: 0;
+  padding: 0;
+}
+
+.radioButton {
+  display: none;
+}
+
+.filterIconWrapper {
+  display: grid;
+  place-content: center;
+  border: solid 0.125rem var(--color-base);
+  border-radius: 50%;
+  width: 2rem;
+  height: 2rem;
+  cursor: pointer;
+}
+
+.radioButton:checked + .filterIconWrapper {
+  background-color: var(--color-base);
+}
+
+.filterIcon {
+
+}
+
+.radioButton:checked + .filterIconWrapper > .filterIcon {
+  color: white;
 }
