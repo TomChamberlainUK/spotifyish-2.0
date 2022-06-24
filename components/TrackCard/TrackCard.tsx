@@ -11,9 +11,14 @@ export default function TrackCard({ id, name, artists, album, imageUrl, previewU
 
   const musicPlayerContext = useContext(MusicPlayerContext);
 
+  const imageWrapperClassName = `
+    ${styles.imageWrapper}
+    ${previewUrl ? styles['imageWrapper--playable'] : styles['imageWrapper--unplayable']}
+  `;
+
   return (
     <li className={styles.container}>
-      <div className={styles.imageWrapper}
+      <div className={imageWrapperClassName}
         onClick={() => {
           if (musicPlayerContext?.setCurrentlyPlaying && previewUrl) {
             musicPlayerContext.setCurrentlyPlaying(previewUrl);

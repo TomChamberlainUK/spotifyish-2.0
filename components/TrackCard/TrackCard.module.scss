@@ -5,8 +5,8 @@
   flex-flow: column;
   gap: 0.5rem;
   box-sizing: border-box;
-  border-radius: 0.5rem;
-  padding: 0.75rem;
+  border-radius: 1rem;
+  padding: 1rem;
   width: 100%;
   list-style: none;
   background-color: var(--color-neutral-lightest);
@@ -21,15 +21,39 @@
   overflow: hidden;
 
   &:hover {
-    cursor: pointer;
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+    }
 
     .image {
       opacity: 80%;
-      transform: scale(1.05);
     }
 
     .playbackIcon {
       opacity: 100%;
+    }
+  }
+
+  &--playable:hover {
+    cursor: pointer;
+
+    &::before {
+      background-color: var(--color-neutral-lightest);
+    }
+
+    .image {
+      transform: scale(1.05);
+    }
+  }
+
+  &--unplayable:hover {
+    &::before {
+      background-color: var(--color-neutral-darkest);
     }
   }
 }
@@ -37,7 +61,6 @@
 .image {
   width: 100%;
   height: 100%;
-  background-color: white;
   transition: transform 0.125s ease-in-out;
 }
 
