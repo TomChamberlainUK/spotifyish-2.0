@@ -127,7 +127,7 @@ const MusicPage: ProtectedNextPage = () => {
           },
           {
             conditionCase: 'top',
-            handler: <TopMusic />
+            handler: <TopMusic filter={formValues.filter}/>
           },
           {
             conditionCase: 'saved',
