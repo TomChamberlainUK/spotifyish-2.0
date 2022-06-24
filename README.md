@@ -6,9 +6,23 @@ Spotifyish is a simple music app that consumes the Spotify Web API.
 
 ## Getting Started
 
-> Ensure both Node/npm are installed (I'm using Node.js v17.3.1 and npm v8.10.0).
+Download, clone, or fork this repository.
 
-Download, clone, or fork this repository, navigate to the route folder in a terminal and enter:
+### Install Node & npm
+
+> This requires you have [nvm](https://github.com/nvm-sh/nvm) installed. You can also manually install Node (16.15.1) and npm (8.11.0) yourself.
+
+Navigate to the route folder in a terminal and enter:
+
+```bash
+nvm use
+```
+
+You may get a message saying Node is not installed yet — Follow the instructions to install it.
+
+### Install dependencies
+
+Navigate to the route folder in a terminal and enter:
 
 ```bash
 npm i
