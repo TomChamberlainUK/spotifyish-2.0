@@ -1,16 +1,22 @@
 @use './typography';
 
 .header {
-  display: flex;
-  align-items: center;
   box-sizing: border-box;
   padding: 0 1rem;
   height: 3rem;
   background-color: var(--color-neutral-lightest);
 }
 
+.selectionForm {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 100%;
+}
+
 .heading {
-  @include typography.heading(var(--color-text-contrast));
+  @include typography.heading(var(--color-text-dark-contrast));
   margin: 0;
 }
 
@@ -19,7 +25,7 @@
 }
 
 .dropdown {
-  @include typography.heading(var(--color-text-contrast));
+  @include typography.heading(var(--color-text-dark-contrast));
   // Override default select styling and add arrow using background image svg
   appearance: none;
   border: none;
@@ -41,4 +47,42 @@
   padding: 1rem;
   min-height: 100%;
   background-color: var(--color-neutral-lighter);
+}
+
+.filterButtonsGroup {
+  display: flex;
+  gap: 1rem;
+  border: none;
+  margin: 0;
+  padding: 0;
+}
+
+.radioButton {
+  display: none;
+}
+
+.filterIconWrapper {
+  display: grid;
+  place-content: center;
+  border: solid 0.125rem var(--color-base);
+  border-radius: 50%;
+  width: 2rem;
+  height: 2rem;
+  cursor: pointer;
+}
+
+.radioButton:checked + .filterIconWrapper {
+  background-color: var(--color-base);
+}
+
+.filterIcon {
+  color: var(--color-text-dark-contrast);
+}
+
+.radioButton:not(:checked) + .filterIconWrapper:hover > .filterIcon {
+  color: var(--color-base);
+}
+
+.radioButton:checked + .filterIconWrapper > .filterIcon {
+  color: var(--color-neutral-lightest);
 }
